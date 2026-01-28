@@ -2,3 +2,10 @@
 /bangla_depression_model
 /bangla_depression_1
 push_to_huggingface.py
+
+data/
+*.csv
+.ipynb_checkpoints/
+venv/
+__pycache__/
+*.pyc   
