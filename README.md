@@ -53,8 +53,6 @@ This repository contains a fine-tuned transformer model for Bangla text depressi
 
 - `training.ipynb` - Main training and evaluation notebook
 - `dataset.xlsx` - Dataset file with posts and labels
-- `bangla_depression_1/` - Pre-trained model files (model weights, tokenizer config)
-- `bangla_depression_model/` - Training checkpoints from different epochs
 - `requirements.txt` - Python dependencies
 
 ## Model Information
@@ -66,8 +64,26 @@ The model is a fine-tuned transformer-based classifier for Bangla depression det
 - Class 2: Moderate (label 3)
 - Class 3: Severe (label 4)
 
+### Using the Pre-trained Model (No Retraining Needed)
+
+Load the model directly from Hugging Face Model Hub:
+
+```python
+from transformers import AutoTokenizer, AutoModelForSequenceClassification
+
+model_name = "SrothJr/bangla-depression-model"  # Update with actual published model name
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForSequenceClassification.from_pretrained(model_name)
+
+# Use for inference
+text = "Your Bangla text here"
+inputs = tokenizer(text, return_tensors="pt")
+outputs = model(**inputs)
+```
+
 ## Notes
 
 - The `venv/` folder is not included in the repository (see `.gitignore`)
+- Model files are hosted on Hugging Face Model Hub - this keeps the repo lightweight (~600 KB instead of 600 MB)
 - Follow the setup instructions above to create your own virtual environment
-- Large model folders are tracked in `.gitignore` - ensure they're in the repo or download them separately as needed
+- No need to retrain - just download the pre-trained model from Hugging Face
