@@ -14,7 +14,7 @@ This repository contains a fine-tuned transformer model for Bangla text depressi
 1. **Clone the repository:**
 
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/SrothJr/p2_model.git
    cd p2_model
    ```
 
