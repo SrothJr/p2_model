@@ -108,9 +108,3 @@ jupyter notebook training.ipynb
 View the full model card and documentation here:
 👉 **[SrothJr/bangla-depression-model on Hugging Face](https://huggingface.co/SrothJr/bangla-depression-model)**
 
-## Notes
-
-- The `venv/` folder is not included in the repository (see `.gitignore`)
-- Model files are hosted on Hugging Face Model Hub - this keeps the repo lightweight (~600 KB instead of 600 MB)
-- Follow the setup instructions above to create your own virtual environment
-- No need to retrain - just download the pre-trained model from Hugging Face
