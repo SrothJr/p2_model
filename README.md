@@ -66,20 +66,47 @@ The model is a fine-tuned transformer-based classifier for Bangla depression det
 
 ### Using the Pre-trained Model (No Retraining Needed)
 
-Load the model directly from Hugging Face Model Hub:
+The pre-trained model is available on the Hugging Face Model Hub. You have two options:
+
+#### Option 1: Direct Download & Inference (Quickest)
 
 ```python
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
 
-model_name = "SrothJr/bangla-depression-model"  # Update with actual published model name
+model_name = "SrothJr/bangla-depression-model"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
-# Use for inference
-text = "Your Bangla text here"
+# Inference example
+text = "আপনার বাংলা টেক্সট এখানে"
 inputs = tokenizer(text, return_tensors="pt")
-outputs = model(**inputs)
+
+with torch.no_grad():
+    outputs = model(**inputs)
+
+logits = outputs.logits
+predicted_class = logits.argmax(-1).item()
+print(f"Predicted depression level: {predicted_class}")
+# 0: Normal, 1: Mild, 2: Moderate, 3: Severe
 ```
+
+#### Option 2: Clone Repo & Setup Environment
+
+If you want to run the full training notebook or develop locally:
+
+```bash
+# Follow the "Getting Started" section above first, then:
+pip install -r requirements.txt
+
+# The model will be automatically downloaded when you run:
+jupyter notebook training.ipynb
+```
+
+#### Model Card
+
+View the full model card and documentation here:
+👉 **[SrothJr/bangla-depression-model on Hugging Face](https://huggingface.co/SrothJr/bangla-depression-model)**
 
 ## Notes
 
