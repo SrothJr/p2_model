@@ -1,4 +1,7 @@
 /venv
 /bangla_depression_model
 /bangla_depression_1
+/bangla_depression_sahajBERT
 push_to_huggingface.py
+*.txt
+*.csv
