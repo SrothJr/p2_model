@@ -3,6 +3,12 @@
 /bangla_depression_1
 push_to_huggingface.py
 
+# Ignore specific model folders
+bangla_depression__bert-base-multilingual-cased_1/
+bangla_depression_bert-base-multilingual-cased_1/
+bangla_depression_model/
+/ Ignore common files and folders
+
 data/
 *.csv
 .ipynb_checkpoints/
